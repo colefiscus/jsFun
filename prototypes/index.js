@@ -63,8 +63,12 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of cat objects.
+    // I want to return an array of cat objects that have an age property that has been increased by 2 for each cat object.
+    // I will try the forEach method and return the original, altered array.
+
+    kitties.forEach(cat => cat.age = cat.age + 2);
+    return kitties;
   }
 };
 

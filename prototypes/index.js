@@ -27,21 +27,26 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const orangeCats = kitties.filter(cat => cat.color === 'orange');
+    const result = orangeCats.map(cat => cat.name);
     return result;
 
-    // Annotation:
-    // Write your annotation here as a comment
+    // Annotation: 
+    // I have an array of objects.
+    // Each object is a cat that has properties of name, age, and color.
+    // I want an array of just the names of cats that only hold the color 'orange' under the color property.
+    // I will try the filter method to first filter out the cats that aren't orange.
+    // I will then use the map method to return an array of only the names of the remaining cat objects.
   },
 
   sortByAge() {
-    // Sort the kitties by their age
-
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a, b) => b.age - a.age);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // I have an array of objects of cats.
+    // I want an array of objects of identical cat objects except sorted by descending age.
+    // I will use the sort method on the age property of the cat objects to sort the cats by age.
   },
 
   growUp() {

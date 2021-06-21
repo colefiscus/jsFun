@@ -13,11 +13,6 @@ const { constellations, stars } = require('./datasets/astronomy');
 const { weapons, characters } = require('./datasets/ultima');
 const { dinosaurs, humans, movies } = require('./datasets/dinosaurs');
 
-
-
-
-
-
 // SINGLE DATASETS
 // =================================================================
 
@@ -27,6 +22,7 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
+    
     const orangeCats = kitties.filter(cat => cat.color === 'orange');
     const result = orangeCats.map(cat => cat.name);
     return result;
@@ -72,21 +68,11 @@ const kittyPrompts = {
   }
 };
 
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
 
 // DATASET: clubs from ./datasets/clubs
 const clubPrompts = {

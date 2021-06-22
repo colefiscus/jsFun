@@ -209,7 +209,7 @@ describe('PROTOTYPES', () => {
       expect(e).to.deep.equal(59);
     });
 
-    it.skip('allToppings', () => {
+    it('allToppings', () => {
       const e = cakePrompts.allToppings();
 
       expect(e).to.deep.equal([
@@ -224,7 +224,7 @@ describe('PROTOTYPES', () => {
       ]);
     });
 
-    it.skip('groceryList', () => {
+    it('groceryList', () => {
       const e = cakePrompts.groceryList();
 
       expect(e).to.deep.equal({

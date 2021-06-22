@@ -206,8 +206,12 @@ const cakePrompts = {
     // 59
 
     // I have the same array of cake objects. 
+    // I want to return an integer of the total amount of cakes inStock.
+    // I will use the reduce method, starting at 0, and add the cake.inStock value on each iteration of the cakes array. Then return that final acc value.
 
-    const result = ;
+    const result = cakes.reduce((total, cake) => {
+      return total + cake.inStock;
+    }, 0);
     return result;
   },
 
@@ -216,11 +220,21 @@ const cakePrompts = {
     // every cake in the dataset e.g.
     // ['dutch process cocoa', 'toasted sugar', 'smoked sea salt', 'berries', ..etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same cake array.
+    // I want to return an array of all unique toppings that exist in the cake array (no duplicates).
+    // I will use the reduce method, starting with an empty array.
+    // On each iteration, I will iterate over the toppings array and check if the acc already includes each topping.
+    // I will return the final array after going through each cake.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = cakes.reduce((acc, cake) => {
+      cake.toppings.forEach(topping => {
+        if (!acc.includes(topping)) {
+          acc.push(topping);
+        }
+      });
+      return acc;
+    }, []);
+    return result;
   },
 
   groceryList() {

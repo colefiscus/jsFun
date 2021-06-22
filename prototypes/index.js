@@ -22,7 +22,7 @@ const kittyPrompts = {
 
     // Return an array of just the names of kitties who are orange e.g.
     // ['Tiger', 'Snickers']
-    
+
     const orangeCats = kitties.filter(cat => cat.color === 'orange');
     const result = orangeCats.map(cat => cat.name);
     return result;
@@ -85,18 +85,25 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of objects each representing a club with its members.
+    // I want object with keys of the names of people whose values are the clubs that that person is in.
+    // I will most likely use a reduce method, starting with an empty object.
+    // On each iteration over the clubs array, I will access the nested members array and test if each name in the array exists already in the final object.
+    // If not, I will add the key along with the value of the club that is being iterated over.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = clubs.reduce((acc, club) => {
+      club.members.forEach(member => {
+        if (!acc[member]) {
+          acc[member] = [club.club];
+        } else {
+          acc[member].push(club.club);
+        }
+      });
+      return acc;
+    }, {});
+    return result;
   }
 };
-
-
-
-
-
 
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------

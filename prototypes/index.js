@@ -146,11 +146,6 @@ const modPrompts = {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
-
-
-
-
-
 // DATASET: cakes from ./datasets/cakes
 const cakePrompts = {
   stockPerCake() {
@@ -162,11 +157,17 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of cake objects, with keys of cakeFlavor, filling, frosting, toppings (array), and inStock (number).
+    // I want to return an array of cake objects that only list the flavor of the cake and the number of cakes inStock.
+    // I will use the map method to create a new array, using the existing cakeFlavor and inStock key-value pairs.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = cakes.map(cake => {
+      return {
+        flavor: cake.cakeFlavor,
+        inStock: cake.inStock
+      };
+    });
+    return result;
   },
 
   onlyInStock() {

@@ -248,11 +248,24 @@ const cakePrompts = {
     //    ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same cake array.
+    // I want to return an object with keys of each topping, and values of integers - the number of individual toppings needed to buy.
+    // I will need to use the reduce method.
+    // I will iterate over each cake object and iterate over the toppings array.
+    // If a topping doesn't exist in the acc as a key, I will add it along with the value seen in the toppings array.
+    // If it does exist I will add the the value that exists in the acc.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = cakes.reduce((acc, cake) => {
+      cake.toppings.forEach(topping => {
+        if (!acc[topping]) {
+          acc[topping] = 1;
+        } else {
+          acc[topping]++;
+        }
+      });
+      return acc;
+    }, {});
+    return result;
   }
 };
 

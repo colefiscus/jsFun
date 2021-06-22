@@ -191,22 +191,24 @@ const cakePrompts = {
     // ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of cake objects.
+    // I want to return an array of identical cake objects, but only including the cakes that are inStock (> 0)
+    // I will use the filter method to make a new array of cakes that are inStock and return that array.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = cakes.filter(cake => {
+      return cake.inStock > 0;
+    });
+    return result;
   },
 
   totalInventory() {
     // Return the total amount of cakes in stock e.g.
     // 59
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of cake objects. 
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = ;
+    return result;
   },
 
   allToppings() {

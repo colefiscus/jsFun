@@ -111,11 +111,6 @@ const clubPrompts = {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
-
-
-
-
-
 // DATASET: mods from ./datasets/mods
 const modPrompts = {
   studentsPerMod() {
@@ -128,18 +123,22 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of objects with each representing a mod, with keys of mod, number of students, and number of instructors.
+    // I want an array of objects with keys of the mod and value of the mod number and a key of studentsPerInstructor with an average calculated for the value.
+    // I will try to use the map method to create a new object for each iteration.
+    // The mod key I will just use the mod value that exists.
+    // The studentsPerInstructor key I will calculate the avg and in the end I will return the new array.
+    
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = mods.map(mod => {
+      return {
+        mod: mod.mod, 
+        studentsPerInstructor: (mod.students / mod.instructors)
+      };
+    });
+    return result;
   }
 };
-
-
-
-
-
 
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------

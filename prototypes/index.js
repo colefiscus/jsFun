@@ -286,11 +286,12 @@ const classPrompts = {
     //   { roomLetter: 'G', program: 'FE', capacity: 29 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of classroom objects, with keys of roomLetter, program, and capacity.
+    // I want to return an array of objects of identical objects, but only with the objects that are FE programs.
+    // I will try the filter method to create a new array of only classroom objects that are FE.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = classrooms.filter(classroom => classroom.program === 'FE');
+    return result;
   },
 
   totalCapacities() {
@@ -301,11 +302,21 @@ const classPrompts = {
     //   beCapacity: 96
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
+    // I have the same array of classroom objects.
+    // I want to return an object with two key-value pairs - feCapacity & beCapacity with values of the total number of capacity for each program.
+  
+    const capacities = {
+      feCapacity: 0,
+      beCapacity: 0
+    };
+    classrooms.forEach(classroom => {
+      if (classroom.program === 'FE') {
+        capacities.feCapacity += classroom.capacity;
+      } else if (classroom.program === 'BE') {
+        capacities.beCapacity += classroom.capacity;
+      }
+    });
+    return capacities;
   },
 
   sortByCapacity() {

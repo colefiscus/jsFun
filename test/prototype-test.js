@@ -326,7 +326,7 @@ describe('PROTOTYPES', () => {
   });
 
   describe('Book prompts', () => {
-    it.skip('removeViolence', () => {
+    it('removeViolence', () => {
       const e = bookPrompts.removeViolence();
 
       expect(e).to.deep.equal([
@@ -348,7 +348,7 @@ describe('PROTOTYPES', () => {
       ]);
     });
 
-    it.skip('getNewBooks', () => {
+    it('getNewBooks', () => {
       const e = bookPrompts.getNewBooks();
 
       expect(e).to.deep.equal([

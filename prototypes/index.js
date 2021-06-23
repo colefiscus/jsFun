@@ -349,14 +349,20 @@ const bookPrompts = {
     //   'The Curious Incident of the Dog in the Night - Time', 'The Bell Jar',
     //   'Catch-22', 'Treasure Island']
 
+    // I have an array of book objects with key-value pairs of title, author, genre, and year published.
+    // I want to return an array of just book title strings that are from book objects that are not of the horror or true crime genre.
+    // I could do a filter + map, but I think I could also do all of that in a single reduce.
+    // Either way, I will need to iterate over the books array, check the genre of the book, then add the book title to the new array if the genre is not horror/true crime.
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = books.reduce((acc, book) => {
+      if (book.genre !== 'Horror' && book.genre !== 'True Crime') {
+        acc.push(book.title);
+      }
+      return acc;
+    }, []);
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
-
   },
+
   getNewBooks() {
     // return an array of objects containing all books that were
     // published in the 90's and 00's. Inlucde the title and the year Eg:
@@ -365,11 +371,10 @@ const bookPrompts = {
     //  { title: 'Life of Pi', year: 2001 },
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = ;
+    return result;
   }
 
 };

@@ -371,14 +371,26 @@ const bookPrompts = {
     //  { title: 'Life of Pi', year: 2001 },
     //  { title: 'The Curious Incident of the Dog in the Night-Time', year: 2003 }]
 
-    
+    // I have the same array of book objects.
+    // I want to return an array of objects with key-value pairs of title and year, but only the books that were published in the 90's and 00's.
+    // I will want to use reduce using the same title and year properties.
+    // On each iteration I will want to check the published property to check if the year is between 1990 and 2009.
+    // Only add the new object if that condition has been met.
 
-    const result = ;
+    const result = books.reduce((acc, book) => {
+      if (book.published > 1989 && book.published < 2010) {
+        const newBook = {
+          title: book.title,
+          year: book.published
+        };
+        acc.push(newBook);
+      }
+      return acc;
+    }, []);
     return result;
   }
 
 };
-
 
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------

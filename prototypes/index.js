@@ -405,11 +405,14 @@ const weatherPrompts = {
     // return an array of all the average temperatures. Eg:
     // [ 40, 40, 44.5, 43.5, 57, 35, 65.5, 62, 14, 46.5 ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of weather objects.
+    // I want to return an array on integers - the averages for each weather object between their high and low.
+    // I will try a map method to create an array while averaging the two values on each iteration.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = weather.map(city => {
+      return (city.temperature.high + city.temperature.low) / 2;
+    });
+    return result;
   },
 
   findSunnySpots() {
@@ -419,11 +422,20 @@ const weatherPrompts = {
     // 'New Orleans, Louisiana is sunny.',
     // 'Raleigh, North Carolina is mostly sunny.' ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of weather objects.
+    // I want to return an array of strings that say 'CITY is sunny.' / 'CITY is mostly sunny.' And only include the sunny/mostly sunny cities.
+    // I could do a filter + map, but it could all be done in one reduce I think.
+    // On every iteration, check to see if the type property is 'sunny' or 'mostly sunny'.
+    // If it does, add a new string with an interpolation of the location and the type.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = weather.reduce((acc, city) => {
+      if (city.type === 'sunny' || city.type === 'mostly sunny') {
+        let newCity = `${city.location} is ${city.type}.`;
+        acc.push(newCity);
+      }
+      return acc;
+    }, []);
+    return result;
   },
 
   findHighestHumidity() {
@@ -435,12 +447,13 @@ const weatherPrompts = {
     //   temperature: { high: 49, low: 38 }
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of weather objects.
+    // I want to return a single weather object, same format, but only the one with the highest humidity.
+    // I will use the sort method to arrange the weather objects in descending order based on humidity.
+    // Then I will return the 0 index of the resulting array.
 
-    // Annotation:
-    // Write your annotation here as a comment
-
+    const result = weather.sort((a, b) => b.humidity - a.humidity);
+    return result[0];
   }
 };
 
@@ -449,7 +462,6 @@ const weatherPrompts = {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
 
 // DATASET: nationalParks from ./datasets/nationalParks
 

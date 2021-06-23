@@ -322,11 +322,12 @@ const classPrompts = {
   sortByCapacity() {
     // Return the array of classrooms sorted by their capacity (least capacity to greatest)
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of classroom objects.
+    // I want to return an array of the same classroom objects, but sorted by their capacity from lowest to greatest.
+    // I will need to use the sort method on the capacity property to sort the entire objects based on that property.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = classrooms.sort((a, b) => a.capacity - b.capacity);
+    return result;
   }
 };
 

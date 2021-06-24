@@ -474,11 +474,24 @@ const nationalParksPrompts = {
     //   parksVisited: ["Rocky Mountain", "Acadia", "Zion"]
     //}
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of parks objects with keys of name, visited, location, and activities (array).
+    // I want to return an object with two keys - parksToVisit (where visited is false) and parksVisited (visited is true), with an array of park names as the value.
+    // I will want to use a reduce.
+    // On each iteration I will need to check the visited property and add the park name to either the created parksToVisit array or parksVisited array.
+    // I will first try to create the keys in the acc.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = nationalParks.reduce((acc, park) => {
+      if (park.visited === true) {
+        acc.parksVisited.push(park.name);
+      } else {
+        acc.parksToVisit.push(park.name);
+      }
+      return acc;
+    }, {
+      parksToVisit: [],
+      parksVisited: []
+    });
+    return result;
   },
 
   getParkInEachState() {
@@ -490,12 +503,15 @@ const nationalParksPrompts = {
     // { Utah: 'Zion' },
     // { Florida: 'Everglades' } ]
 
+    // I have the same array of park objects.
+    // I want to return an array of objects whose key is the location and the value is the national park.
+    // I will try a map method.
+    // On each iteration I will return a new object with the correct key-value pair taken from the original object.
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = nationalParks.map(nationalPark => {
+      
+    });
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
   },
 
   getParkActivities() {

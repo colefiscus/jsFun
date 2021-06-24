@@ -550,18 +550,11 @@ const nationalParksPrompts = {
   }
 };
 
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
 
 // DATASET: breweries from ./datasets/breweries
 const breweryPrompts = {
@@ -569,11 +562,15 @@ const breweryPrompts = {
     // Return the total beer count of all beers for every brewery e.g.
     // 40
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an array of brewery objects with key-value pairs of name, neighborhood, and beers (array of objects).
+    // I want to return the total number of unique beers from all breweries.
+    // I will want to use a reduce method.
+    // On each iteration, I will add the length of the beers array to the accumulator until I've gone through all breweries.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = breweries.reduce((total, brewery) => {
+      return total + brewery.beers.length;
+    }, 0);
+    return result;
   },
 
   getBreweryBeerCount() {
@@ -585,11 +582,10 @@ const breweryPrompts = {
     // ...etc.
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same 
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = ;
+    return result;
   },
 
   findHighestAbvBeer() {

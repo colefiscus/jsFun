@@ -582,9 +582,17 @@ const breweryPrompts = {
     // ...etc.
     // ]
 
-    // I have the same 
+    // I have the same array of breweries objects.
+    // I want to return an array of different brewery objects with the key-value pairs of the name and beerCount which is a number of how many beers that brewery has.
+    // I will try to use a map method.
+    // On each iteration I will return a new object with the same name property + a beerCount property with a value of the length of the beers property.
 
-    const result = ;
+    const result = breweries.map(brewery => {
+      return {
+        name: brewery.name,
+        beerCount: brewery.beers.length
+      };
+    });
     return result;
   },
 
@@ -593,11 +601,20 @@ const breweryPrompts = {
     // e.g.
     // { name: 'Barrel Aged Nature\'s Sweater', type: 'Barley Wine', abv: 10.9, ibu: 40 }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of beer objects.
+    // I want to return an individual beer object from the beers array from a single brewery - the single beer with the single highest ABV.
+    // I will want to create a new function that takes in an array to sort based on the objects abv value then returns the beer object with the highest - the 0 index.
+    // Then I will use that function first on all breweries, then again on the resulting array of the strongest beer from each brewery to get the strongest beer from all breweries.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const findStrongestBeer = (arr) => {
+      const sortedBeers = arr.sort((a, b) => b.abv - a.abv);
+      return sortedBeers[0];
+    };
+
+    const strongBeers = breweries.map(brewery => findStrongestBeer(brewery.beers));
+
+    const result = findStrongestBeer(strongBeers);
+    return result;
   }
 };
 

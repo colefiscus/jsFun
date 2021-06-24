@@ -669,11 +669,19 @@ const turingPrompts = {
     // cohort1804: 10.5
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same arrays of objects.
+    // I want to return an object with keys of cohort${cohortNumber} and a value of how many students per teacher there are in each cohort.
+    // I'm going to try to iterate over the cohorts array with reduce. On each iteration I'm going to filter the instructors array for instrucors on the correct module.
+    // I will add to the acc the cohort + the cohort number for the key with the value of the length of the filtered instructors array over the studentCount.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = cohorts.reduce((acc, cohort) => {
+      const filteredInstructors = instructors.filter(instructor => {
+        return instructor.module === cohort.module;
+      });
+      acc[`cohort${cohort.cohort}`] = cohort.studentCount / filteredInstructors.length;
+      return acc;
+    }, {});
+    return result;
   },
 
   modulesPerTeacher() {

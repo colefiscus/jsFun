@@ -509,7 +509,10 @@ const nationalParksPrompts = {
     // On each iteration I will return a new object with the correct key-value pair taken from the original object.
 
     const result = nationalParks.map(nationalPark => {
-      
+      const newPark = {
+        [nationalPark.location]: nationalPark.name
+      };
+      return newPark;
     });
     return result;
   },
@@ -530,11 +533,20 @@ const nationalParksPrompts = {
     //   'backpacking',
     //   'rock climbing' ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of park objects.
+    // I want to return an array of all activies that exist inside all park objects.
+    // I will want to use reduce.
+    // On each iteration, I will want to iterate over the activities array and check if each activity already exists in the acc.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = nationalParks.reduce((activities, park) => {
+      park.activities.forEach(activity => {
+        if (!activities.includes(activity)) {
+          activities.push(activity);
+        }
+      });
+      return activities;
+    }, []);
+    return result;
   }
 };
 

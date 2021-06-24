@@ -618,32 +618,16 @@ const breweryPrompts = {
   }
 };
 
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
 
 // DOUBLE DATASETS
 // =================================================================
@@ -658,11 +642,24 @@ const turingPrompts = {
     //  { name: 'Robbie', studentCount: 18 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have two arrays of objects - instructors with properties of name, module, and teaches (array) AND cohorts with properties of cohort, module, studentCount, and curriculum (array).
+    // I want to return an array of instructor objects with properties of name and studentCount.
+    // I will have to iterate over the instructors array, and for every instructor I will have to iterate over the cohorts array.
+    // I'll try a map + forEach method combo - if a cohort.module matches the instructor.module, I will return an object with the instructor.name: cohort.studentCount until I've gone through each instructor.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const matchingInstructors = [];
+    instructors.map(instructor => {
+      cohorts.forEach(cohort => {
+        if (instructor.module === cohort.module) {
+          const match = {
+            name: instructor.name,
+            studentCount: cohort.studentCount
+          };
+          matchingInstructors.push(match);
+        }
+      });
+    });
+    return matchingInstructors;
   },
 
   studentsPerInstructor() {

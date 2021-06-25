@@ -699,11 +699,25 @@ const turingPrompts = {
     //     Will: [1, 2, 3, 4]
     //   }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same arrays of cohort and instructor objects.
+    // I want to return an object, with keys of instructor names and values of arrays holding the module integers that each instructor CAN teach based on the skills they have.
+    // The final values will depend on the skills an instructor has and what matches in the curriculum array inside of each cohort array.
+    // I will try iterating over the instructor array using reduce, and for every iteration, I will iterate over the cohorts array and iterate over the curriculum array to test whether each subject is included in the current instructors skills.
+    // If so, I will add that cohort number to the final array value.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = instructors.reduce((acc, instructor) => {
+      cohorts.forEach(cohort => {
+        cohort.curriculum.forEach(subject => {
+          if (instructor.teaches.includes(subject) && !acc[instructor.name]) {
+            acc[instructor.name] = [cohort.module];
+          } else if (instructor.teaches.includes(subject) && !acc[instructor.name].includes(cohort.module)) {
+            acc[instructor.name].push(cohort.module);
+          }
+        });
+      });
+      return acc;
+    }, {});
+    return result;
   },
 
   curriculumPerTeacher() {

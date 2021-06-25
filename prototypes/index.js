@@ -730,11 +730,24 @@ const turingPrompts = {
     //   recursion: [ 'Pam', 'Leta' ]
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of objects.
+    // I want to return an object with keys of subjects, and values of array that hold instructor names who can teach that subject.
+    // I will probably iterate over the cohorts array, and then iterate over the curriculum array.
+    // For every subject I will iterate over the instructors array and check if the subject is included in what they can teach, if it is I will add their name to the final array value.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = cohorts.reduce((acc, cohort) => {
+      cohort.curriculum.forEach(subject => {
+        instructors.forEach(instructor => {
+          if (instructor.teaches.includes(subject) && !acc[subject]) {
+            acc[subject] = [instructor.name];
+          } else if (instructor.teaches.includes(subject) && !acc[subject].includes(instructor.name)) {
+            acc[subject].push(instructor.name);
+          }
+        });
+      });
+      return acc;
+    }, {});
+    return result;
   }
 };
 

@@ -768,18 +768,29 @@ const bossPrompts = {
     //   { bossName: 'Scar', sidekickLoyalty: 16 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have an object of boss objects with one key of their name - the value is an object that holds many more properties - name, archnemesis, goal, sidekicks, weaknesses, and signatureMove.
+    // I also have an array of sidekick objects that hold properties of name, associated, boss, and loyaltyToBoss.
+    // I want to return an array of objects with two properties - bossName and sidekickLoyalty (the total integer sum of loyaltyToBoss from all sidekicks.)
+    // First I'll access the bossName from the bosses object to create an array with the bossNames.
+    // Next I'll iterate over the sidekicks array.
+    // For each iteration, I will iterate over the new bossNames array, and every time the boss matches the bossName, I will add to the sidekick loyaly property based on the loyaltyToBoss property.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const bossNames = Object.keys(bosses);
+    const result = bossNames.map(bossName => {
+      let loyalty = 0;
+      sidekicks.forEach(sidekick => {
+        if ( bossName === sidekick.boss.toLowerCase()){
+          loyalty += sidekick.loyaltyToBoss;
+        }
+      });
+      return {
+        bossName: bossName.charAt(0).toUpperCase() + bossName.slice(1),
+        sidekickLoyalty: loyalty
+      };
+    });
+    return result;
   }
 };
-
-
-
-
-
 
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------

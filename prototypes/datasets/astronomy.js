@@ -7,7 +7,7 @@ const constellations = {
     names: ['Ursa Major', 'The Big Dipper', 'The Great Bear', 'The Plow'],
     stars: ['Dubhe', 'Merak', 'Phecda', 'Megrez', 'Alioth', 'Mizar', 'Alkaid']
   },
-  ursaMinor: {
+  ursaMinor: {  
     names: ['Ursa Minor', 'The Little Dipper', 'The Cub', 'The Little Bear'],
     stars: ['Polaris', 'Kochab', 'Pherkad', 'Delta', 'Epsilon Ursae Minoris', 'Lambda Ursae Minoris']
   }

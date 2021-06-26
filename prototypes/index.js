@@ -798,11 +798,6 @@ const bossPrompts = {
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 
-
-
-
-
-
 // DATASET: constellations, stars } from ./datasets/astronomy
 const astronomyPrompts = {
   starsInConstellations() {
@@ -821,11 +816,13 @@ const astronomyPrompts = {
     //     color: 'red' }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // 
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const constellationNames = Object.keys(constellations);
+    const result = stars.filter(star => {
+      return constellationNames.includes(star.constellation.toLowerCase());
+    });
+    return result;
   },
 
   starsByColor() {

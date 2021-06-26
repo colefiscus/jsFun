@@ -816,8 +816,6 @@ const astronomyPrompts = {
     //     color: 'red' }
     // ]
 
-    // 
-
     const constellationNames = Object.keys(constellations);
     const result = stars.filter(star => {
       return constellationNames.includes(star.constellation.toLowerCase());
@@ -836,11 +834,8 @@ const astronomyPrompts = {
     //   red: [{obj}]
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = ;
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
   },
 
   constellationsStarsExistIn() {

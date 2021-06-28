@@ -834,7 +834,17 @@ const astronomyPrompts = {
     //   red: [{obj}]
     // }
 
-    const result = ;
+    // I have the same arrays of constellations and stars.
+    // I want to return an object with keys of colors taken from the stars array and values of an array of objects of the entire star objects that hold that matching color under the color property.
+
+    const result = stars.reduce((acc, star) => {
+      if (!acc[star.color]) {
+        acc[star.color] = [star];
+      } else {
+        acc[star.color].push(star);
+      }
+      return acc;
+    }, {});
     return result;
   },
 
@@ -852,12 +862,18 @@ const astronomyPrompts = {
     //    "Orion",
     //    "The Little Dipper" ]
 
+    // I want to return an array of constellation names that include the brightests stars.
+    // I will try filtering over the stars array.
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const notStars = stars.filter(star => {
+      if (star.constellation) {
+        return star.constellation;
+      }
+    });
+    const result = notStars.map(star => {
+      return star.constellation;
+    });
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
   }
 };
 

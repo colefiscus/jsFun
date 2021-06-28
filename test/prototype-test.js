@@ -612,7 +612,7 @@ describe('PROTOTYPES', () => {
       ]);
     });
 
-    it.skip('starsByColor', () => {
+    it('starsByColor', () => {
       const e = astronomyPrompts.starsByColor();
 
       expect(e).to.deep.equal({
@@ -706,16 +706,16 @@ describe('PROTOTYPES', () => {
       });
     });
 
-    it.skip('constellationsStarsExistIn', () => {
+    it('constellationsStarsExistIn', () => {
       const e = astronomyPrompts.constellationsStarsExistIn();
 
       expect(e).to.deep.equal([
         'Canis Major',
         'Carina',
         'Boötes',
+        'Lyra',
         'Auriga',
         'Orion',
-        'Lyra',
         'Canis Minor',
         'The Plow',
         'Orion',

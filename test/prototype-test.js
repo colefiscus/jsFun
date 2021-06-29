@@ -764,7 +764,7 @@ describe('PROTOTYPES', () => {
   });
 
   describe('Dinosaur Prompts', () => {
-    it.skip('countAwesomeDinosaurs', () => {
+    it('countAwesomeDinosaurs', () => {
       const e = dinosaurPrompts.countAwesomeDinosaurs();
 
       expect(e).to.deep.equal({

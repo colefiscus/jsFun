@@ -929,21 +929,11 @@ const ultimaPrompts = {
   },
 };
 
-
-
-
-
-
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
-
-
-
-
-
 
 // DATASET: dinosaurs, humans, movies from ./datasets/dinosaurs
 const dinosaurPrompts = {
@@ -958,11 +948,10 @@ const dinosaurPrompts = {
     //   'Jurassic World: Fallen Kingdom': 18
     // }
 
+    //
+
     const result = 'REPLACE WITH YOUR RESULT HERE';
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
   },
 
   averageAgePerMovie() {

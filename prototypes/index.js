@@ -889,8 +889,22 @@ const ultimaPrompts = {
 
     // Return the sum of the amount of damage for all the weapons that our characters can use
     // Answer => 113
+    
+    // I have an array of characters objects with keys of name, profession, weapons (array), and home. And I have an object called weapons with nested objects.
+    // I want to return the total amount of damage for all weapons.
+    // I will try to iterate over the characters array and match the strings in the weapons object in order to add the damage amount to an accumulator.
+    // I will also need to figure out some way to avoid duplicates.
 
-    const result = '';
+    const result = characters.reduce((acc, character) => {
+      const usedWeapons = [];
+      character.weapons.forEach(weapon => {
+        if (!usedWeapons.includes(weapon)) {
+          acc += weapons[weapon].damage;
+          usedWeapons.push(weapon);
+        }
+      });
+      return acc;
+    }, 0);
     return result;
   },
 
@@ -899,11 +913,12 @@ const ultimaPrompts = {
     // Return the sum damage and total range for each character as an object.
     // ex: [ { Avatar: { damage: 27, range: 24 }, { Iolo: {...}, ...}
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I have the same array of objects and nested objects.
+    // I want to return the sum damamge and total range for each character based on the weapons they can use  as individual objects.
+    // I will want to iterate over the characters array and I will try a map function and I will also have to iterate over the weapons array to find the damage and range for each weapon.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = ;
+    return result;
   },
 };
 

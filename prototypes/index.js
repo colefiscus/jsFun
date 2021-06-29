@@ -917,7 +917,14 @@ const ultimaPrompts = {
     // I want to return the sum damamge and total range for each character based on the weapons they can use  as individual objects.
     // I will want to iterate over the characters array and I will try a map function and I will also have to iterate over the weapons array to find the damage and range for each weapon.
 
-    const result = ;
+    const result = characters.map(character => {
+      const weaponSum = character.weapons.reduce((acc, weapon) => {
+        acc.damage += weapons[weapon].damage;
+        acc.range += weapons[weapon].range;
+        return acc;
+      }, {damage: 0, range: 0});
+      return {[character.name]: weaponSum};
+    });
     return result;
   },
 };

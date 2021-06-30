@@ -990,11 +990,29 @@ const dinosaurPrompts = {
       }
     */
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I want to return an object with keys of directors names and values of nested objects with keys of the movie titles that director directed and values of the average age of the cast when the movie was made.
+    // I will want to iterate over the movies array. For each iteration I will want to iterate over the cast array and access their data from the humans object.
+    // I will want to subtract the cast members year of birth from the yearReleased and probably create a running total of the casts collective age so that at the end when I return the object, I can divide by the length of the cast array for each movie.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const result = movies.reduce((acc, movie) => {
+      movie.cast.forEach(castMember => {
+        if (!acc[movie.director]) {
+          acc[movie.director] = {
+            [movie.title]: (movie.yearReleased - humans[castMember].yearBorn)
+          };
+        } else if (acc[movie.director] && !acc[movie.director][movie.title]) {
+          acc[movie.director] = {
+            ...acc[movie.director],
+            [movie.title]: (movie.yearReleased - humans[castMember].yearBorn)
+          };
+        } else if (acc[movie.director][movie.title]) {
+          acc[movie.director][movie.title] += (movie.yearReleased - humans[castMember].yearBorn);
+        }
+      });
+      acc[movie.director][movie.title] = Math.floor((acc[movie.director][movie.title] / movie.cast.length));
+      return acc;
+    }, {});
+    return result;
   },
 
   uncastActors() {

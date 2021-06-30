@@ -994,25 +994,25 @@ const dinosaurPrompts = {
     // I will want to iterate over the movies array. For each iteration I will want to iterate over the cast array and access their data from the humans object.
     // I will want to subtract the cast members year of birth from the yearReleased and probably create a running total of the casts collective age so that at the end when I return the object, I can divide by the length of the cast array for each movie.
 
-    const result = movies.reduce((acc, movie) => {
-      movie.cast.forEach(castMember => {
-        if (!acc[movie.director]) {
-          acc[movie.director] = {
-            [movie.title]: (movie.yearReleased - humans[castMember].yearBorn)
-          };
-        } else if (acc[movie.director] && !acc[movie.director][movie.title]) {
-          acc[movie.director] = {
-            ...acc[movie.director],
-            [movie.title]: (movie.yearReleased - humans[castMember].yearBorn)
-          };
-        } else if (acc[movie.director][movie.title]) {
-          acc[movie.director][movie.title] += (movie.yearReleased - humans[castMember].yearBorn);
-        }
-      });
-      acc[movie.director][movie.title] = Math.floor((acc[movie.director][movie.title] / movie.cast.length));
-      return acc;
-    }, {});
-    return result;
+    // const result = movies.reduce((acc, movie) => {
+    //   movie.cast.forEach(castMember => {
+    //     if (!acc[movie.director]) {
+    //       acc[movie.director] = {
+    //         [movie.title]: (movie.yearReleased - humans[castMember].yearBorn)
+    //       };
+    //     } else if (acc[movie.director] && !acc[movie.director][movie.title]) {
+    //       acc[movie.director] = {
+    //         ...acc[movie.director],
+    //         [movie.title]: (movie.yearReleased - humans[castMember].yearBorn)
+    //       };
+    //     } else if (acc[movie.director][movie.title]) {
+    //       acc[movie.director][movie.title] += (movie.yearReleased - humans[castMember].yearBorn);
+    //     }
+    //   });
+    //   acc[movie.director][movie.title] = Math.floor((acc[movie.director][movie.title] / movie.cast.length));
+    //   return acc;
+    // }, {});
+    // return result;
   },
 
   uncastActors() {
@@ -1046,25 +1046,25 @@ const dinosaurPrompts = {
     // I will then want to iterate over the movies array and for each movie, iterate over the cast and for each castMember determine if their name is included in the new humans array.
     // If it is, I take it out. I continue until all casts have been gone through, then iterate over the altered humans array and creating a new array of the non-matching human objects. 
 
-    const allPeople = Object.keys(humans)
-    movies.forEach(movie => {
-      movie.cast.forEach(castMember => {
-        if (allPeople.includes(castMember)) {
-          const i = allPeople.indexOf(castMember)
-          allPeople.splice(i, 1);
-        }
-      })
-    })
-    const result = []
-    allPeople.forEach(person => {
-      result.push({
-        name: person,
-        nationality: humans[person].nationality,
-        imdbStarMeterRating: humans[person].imdbStarMeterRating
-      })
-    });
-    console.log(result)
-    return result;
+    // const allPeople = Object.keys(humans)
+    // movies.forEach(movie => {
+    //   movie.cast.forEach(castMember => {
+    //     if (allPeople.includes(castMember)) {
+    //       const i = allPeople.indexOf(castMember)
+    //       allPeople.splice(i, 1);
+    //     }
+    //   })
+    // })
+    // const result = []
+    // allPeople.forEach(person => {
+    //   result.push({
+    //     name: person,
+    //     nationality: humans[person].nationality,
+    //     imdbStarMeterRating: humans[person].imdbStarMeterRating
+    //   })
+    // });
+    // console.log(result)
+    // return result;
   },
 
   actorsAgesInMovies() {

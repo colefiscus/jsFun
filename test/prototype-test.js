@@ -776,53 +776,6 @@ describe('PROTOTYPES', () => {
       });
     });
 
-    it('averageAgePerMovie', () => {
-      const e = dinosaurPrompts.averageAgePerMovie();
-
-      expect(e).to.deep.equal({
-        'Steven Spielberg': {
-          'Jurassic Park': 34,
-          'The Lost World: Jurassic Park': 37,
-        },
-        'Joe Johnston': {
-          'Jurassic Park III': 44,
-        },
-        'Colin Trevorrow': {
-          'Jurassic World': 56,
-        },
-        'J. A. Bayona': {
-          'Jurassic World: Fallen Kingdom': 59,
-        },
-      });
-    });
-
-    it('uncastActors', () => {
-      const e = dinosaurPrompts.uncastActors();
-
-      expect(e).to.deep.equal([
-        {
-          name: 'Justin Duncan',
-          nationality: 'Alien',
-          imdbStarMeterRating: 0,
-        },
-        {
-          name: 'Karin Ohman',
-          nationality: 'Chinese',
-          imdbStarMeterRating: 0,
-        },
-        {
-          name: 'Tom Wilhoit',
-          nationality: 'Kiwi',
-          imdbStarMeterRating: 1,
-        },
-        {
-          name: 'Jeo D',
-          nationality: 'Martian',
-          imdbStarMeterRating: 0,
-        },
-      ]);
-    });
-
     it.skip('actorsAgesInMovies', () => {
       const e = dinosaurPrompts.actorsAgesInMovies();
 

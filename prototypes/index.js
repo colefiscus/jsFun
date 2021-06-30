@@ -951,7 +951,16 @@ const dinosaurPrompts = {
     // I want to return an object with keys of movie titles and keys of integers that represent how many 'awesome' dinos are present in each movie.
     // I will try iterating over the movies array (an array of objects), and on each iteration I will iterate over the dinos array inside and determine whether a dino is awesome, then add it to a running total to return at the end of the iteration.
 
-    const result = ;
+    const result = movies.reduce((acc, movie) => {
+      movie.dinos.forEach(dino => {
+        if (!acc[movie.title] && dinosaurs[dino].isAwesome) {
+          acc[movie.title] = 1;
+        } else if (acc[movie.title] && dinosaurs[dino].isAwesome) {
+          acc[movie.title]++;
+        }
+      });
+      return acc;
+    }, {});
     return result;
   },
 

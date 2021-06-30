@@ -948,9 +948,10 @@ const dinosaurPrompts = {
     //   'Jurassic World: Fallen Kingdom': 18
     // }
 
-    //
+    // I want to return an object with keys of movie titles and keys of integers that represent how many 'awesome' dinos are present in each movie.
+    // I will try iterating over the movies array (an array of objects), and on each iteration I will iterate over the dinos array inside and determine whether a dino is awesome, then add it to a running total to return at the end of the iteration.
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = ;
     return result;
   },
 

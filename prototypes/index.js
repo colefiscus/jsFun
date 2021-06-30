@@ -1041,11 +1041,30 @@ const dinosaurPrompts = {
       }]
     */
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I want to return an array of objects of the actors included in the humans object, but are not cast in any of the dino movies.
+    // I will want to create an array of all humans names by taking the keys of the humans object.
+    // I will then want to iterate over the movies array and for each movie, iterate over the cast and for each castMember determine if their name is included in the new humans array.
+    // If it is, I take it out. I continue until all casts have been gone through, then iterate over the altered humans array and creating a new array of the non-matching human objects. 
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const allPeople = Object.keys(humans)
+    movies.forEach(movie => {
+      movie.cast.forEach(castMember => {
+        if (allPeople.includes(castMember)) {
+          const i = allPeople.indexOf(castMember)
+          allPeople.splice(i, 1);
+        }
+      })
+    })
+    const result = []
+    allPeople.forEach(person => {
+      result.push({
+        name: person,
+        nationality: humans[person].nationality,
+        imdbStarMeterRating: humans[person].imdbStarMeterRating
+      })
+    });
+    console.log(result)
+    return result;
   },
 
   actorsAgesInMovies() {

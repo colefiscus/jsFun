@@ -9,7 +9,7 @@ chai.use(function (e, t) {
 });
 
 describe('SCOPE', () => {
-  it.skip('exerciseA', () => {
+  it('exerciseA', () => {
     const e =
       JSON.stringify(scope.exerciseA()) ==
       JSON.stringify([

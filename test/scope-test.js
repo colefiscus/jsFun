@@ -32,7 +32,7 @@ describe('SCOPE', () => {
     ).to.be.true;
   });
 
-  it.skip('exerciseB', () => {
+  it('exerciseB', () => {
     const e =
       JSON.stringify(scope.exerciseB()) ==
       JSON.stringify([

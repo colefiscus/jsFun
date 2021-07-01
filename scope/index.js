@@ -1,3 +1,10 @@
+const example = [
+  {A: ''},
+  {B: ''},
+  {C: ''},
+  {D: ''}
+];
+
 const scope = {
   exerciseA() {
     let personA = 'Paul';
@@ -42,6 +49,19 @@ const scope = {
   },
 
   exerciseB() {
+
+    // First number === 30.
+    // There is one functions hoisted - numberFunction.
+    // Functional number === 75.
+    // Block number === 28.
+    // First log references functional number - 75!
+    // Next function - newNumber.
+    // 2nd Functional number === 64.
+    // Second log references 2nd functional number - 64!
+    // Third log references 1st functional number - 75!
+    // Last log references first number - 30!
+
+
     let number = 30;
 
     function numberFunction() {
@@ -68,11 +88,13 @@ const scope = {
 
     // Log D: number
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = [
+      {A: 75},
+      {B: 64},
+      {C: 64},
+      {D: 30}
+    ];
     return result;
-
-    // Annotation:
-    // Write your annotation here as a comment
   },
 
   exerciseC() {

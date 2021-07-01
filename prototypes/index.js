@@ -1083,11 +1083,32 @@ const dinosaurPrompts = {
       { name: 'Bryce Dallas Howard', ages: [ 34, 37 ] } ]
     */
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
-    return result;
+    // I want to return an array of objects for each human with keys of name (string) and ages (array) for how old they were for each movie they were in.
+    // Also only include humans who were cast in at least one movie.
+    // I'll want to iterate over the movies array and for each iteration, I'll want to iterate over the cast array.
+    // For each castMember, I will want to create a new object with their name and then their age inside of an array for how old they were for the movie by using the humans object for their year of birth.
 
-    // Annotation:
-    // Write your annotation here as a comment
+    const people = movies.reduce((acc, movie) => {
+      movie.cast.forEach(castMember => {
+        if (!acc[castMember]) {
+          acc[castMember] = [movie.yearReleased - humans[castMember].yearBorn];
+        } else if (acc[castMember]) {
+          acc[castMember].push(movie.yearReleased - humans[castMember].yearBorn);
+        }
+      });
+      return acc;
+    }, {});
+    const names = Object.keys(people);
+    const ages = Object.values(people);
+    result = [];
+    for (let i = 0; i < names.length; i++) {
+      let person = {
+        name: names[i],
+        ages: ages[i]
+      };
+      result.push(person);
+    }
+    return result;
   }
 };
 
